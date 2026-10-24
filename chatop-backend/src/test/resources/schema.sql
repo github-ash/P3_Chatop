@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS USERS (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255),
+    name VARCHAR(255),
+    password VARCHAR(255),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    CONSTRAINT USERS_index UNIQUE (email)
+);
+CREATE TABLE IF NOT EXISTS RENTALS (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
+    surface NUMERIC(10,0),
+    price NUMERIC(10,0),
+    picture VARCHAR(255),
+    description VARCHAR(2000),
+    owner_id INTEGER NOT NULL REFERENCES USERS(id),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+);
+CREATE TABLE IF NOT EXISTS MESSAGES (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    rental_id INTEGER REFERENCES RENTALS(id),
+    user_id INTEGER REFERENCES USERS(id),
+    message VARCHAR(2000),
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP
+);

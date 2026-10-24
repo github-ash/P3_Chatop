@@ -1,0 +1,17 @@
+# Documents de remise et notes de demonstration
+/Livrables_Chatop/
+/FICHE_DEMO.md
+
+# Configuration confidentielle
+**/.env
+**/.env.*
+!**/.env.example
+**/application-local.properties
+
+# Dependances et fichiers generes
+**/node_modules/
+**/target/
+**/dist/
+**/.angular/
+**/uploads/
+**/.idea/
