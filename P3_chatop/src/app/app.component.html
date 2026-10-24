@@ -1,0 +1,20 @@
+<div class="app">
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>Rental app</span>
+    @if ($isLogged() | async) {
+      <div>
+        <span routerLink="rentals" class="link">Rentals</span>
+        <span routerLink="me" class="link">Account</span>
+        <span (click)="logout()" class="link">Logout</span>
+      </div>
+    } @else {
+      <div>
+        <span routerLink="login" class="link">Login</span>
+        <span routerLink="register" class="link">Register</span>
+      </div>
+    }
+  </mat-toolbar>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
